@@ -7,6 +7,8 @@ Here is a unofficial guidebook about how to point out where go weong when config
 
 [map-machine](https://github.com/enzet/map-machine) is a OpenStreetMap based image generator library that @enzet maintancing.
 
+This repository is my diary about meet with error and error. Sometimes when I'm lazy, I will write in Chinese.
+
 ---
 
 Catalog:
