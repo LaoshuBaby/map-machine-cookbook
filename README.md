@@ -18,6 +18,7 @@ Catalog:
   + 1.2 `Could not find a version that satisfies the requirement Shapely>=1.7.1`
 
 + 2. Using
+  + 2.1 `cannot load library 'libcairo.so.2': error 0x7e`
 
 ---
 
@@ -55,16 +56,16 @@ Q:
 
 ```
 ERROR: Command errored out with exit status 1:
-   command: 'C:\Users\azumu\AppData\Local\Programs\Python\Python310\python.exe' -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'C:\\Users\\azumu\\AppData\\Local\\Temp\\pip-install-fp9m3brr\\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\\setup.py'"'"'; __file__='"'"'C:\\Users\\azumu\\AppData\\Local\\Temp\\pip-install-fp9m3brr\\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\\setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base 'C:\Users\azumu\AppData\Local\Temp\pip-pip-egg-info-hyqn0qow'
-       cwd: C:\Users\azumu\AppData\Local\Temp\pip-install-fp9m3brr\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\
+   command: 'C:\Users\username\AppData\Local\Programs\Python\Python310\python.exe' -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'C:\\Users\\azumu\\AppData\\Local\\Temp\\pip-install-fp9m3brr\\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\\setup.py'"'"'; __file__='"'"'C:\\Users\\azumu\\AppData\\Local\\Temp\\pip-install-fp9m3brr\\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\\setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base 'C:\Users\azumu\AppData\Local\Temp\pip-pip-egg-info-hyqn0qow'
+       cwd: C:\Users\username\AppData\Local\Temp\pip-install-fp9m3brr\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\
   Complete output (9 lines):
   Traceback (most recent call last):
     File "<string>", line 1, in <module>
-    File "C:\Users\azumu\AppData\Local\Temp\pip-install-fp9m3brr\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\setup.py", line 74, in <module>
+    File "C:\Users\username\AppData\Local\Temp\pip-install-fp9m3brr\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\setup.py", line 74, in <module>
       from shapely._buildcfg import geos_version_string, geos_version, \
-    File "C:\Users\azumu\AppData\Local\Temp\pip-install-fp9m3brr\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\shapely\_buildcfg.py", line 204, in <module>
+    File "C:\Users\username\AppData\Local\Temp\pip-install-fp9m3brr\shapely_d5d15fe21b2f42cf8d975b48d63f4eb0\shapely\_buildcfg.py", line 204, in <module>
       lgeos = CDLL("geos_c.dll")
-    File "C:\Users\azumu\AppData\Local\Programs\Python\Python310\lib\ctypes\__init__.py", line 374, in __init__
+    File "C:\Users\username\AppData\Local\Programs\Python\Python310\lib\ctypes\__init__.py", line 374, in __init__
       self._handle = _dlopen(self._name, mode)
   FileNotFoundError: Could not find module 'geos_c.dll' (or one of its dependencies). Try using the full path with constructor syntax.
   ----------------------------------------
@@ -84,7 +85,32 @@ The solve way is change your python version, this may differ from your operation
 
 Q: 
 
-"cannot load library 'libcairo.so.2': error 0x7e"
+```
+Traceback (most recent call last):
+  File "c:\program files\python39\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "c:\program files\python39\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\username\AppData\Roaming\Python\Python39\Scripts\map-machine.exe\__main__.py", line 7, in <module>
+  File "C:\Users\username\AppData\Roaming\Python\Python39\site-packages\map_machine\main.py", line 35, in main
+    from map_machine.slippy import tile
+  File "C:\Users\username\AppData\Roaming\Python\Python39\site-packages\map_machine\slippy\tile.py", line 13, in <module>
+    import cairosvg
+  File "C:\Users\username\AppData\Roaming\Python\Python39\site-packages\cairosvg\__init__.py", line 26, in <module>
+    from . import surface  # noqa isort:skip
+  File "C:\Users\username\AppData\Roaming\Python\Python39\site-packages\cairosvg\surface.py", line 9, in <module>
+    import cairocffi as cairo
+  File "C:\Users\username\AppData\Roaming\Python\Python39\site-packages\cairocffi\__init__.py", line 48, in <module>
+    cairo = dlopen(
+  File "C:\Users\username\AppData\Roaming\Python\Python39\site-packages\cairocffi\__init__.py", line 45, in dlopen
+    raise OSError(error_message)  # pragma: no cover
+OSError: no library called "cairo-2" was found
+no library called "cairo" was found
+no library called "libcairo-2" was found
+cannot load library 'libcairo.so.2': error 0x7e
+cannot load library 'libcairo.2.dylib': error 0x7e
+cannot load library 'libcairo-2.dll': error 0x7e
+```
 
 A: 
 
